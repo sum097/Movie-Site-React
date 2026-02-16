@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const defaultMovies = [
@@ -52,7 +52,7 @@ const defaultMovies = [
   },
 ];
 
-const HomePage = () => {
+const Movies = () => {
   const navigate = useNavigate();
   const [movies, setMovies] = useState(defaultMovies);
   const [searchTerm, setSearchTerm] = useState("");
@@ -96,62 +96,36 @@ const HomePage = () => {
 
   return (
     <div className="main-content">
-      <section id="header">
-        <div className="movie__background">
-          <div className="movie__background__wrapper">
-            <img
-              src="/assets/moviebackground2.jpg"
-              className="movie__background__image"
-            />
-          </div>
-          <div className="movie__background__text">
-            <h1 className="movie__background__title">
-              Ticket <span className="span__title">+</span>
-            </h1>
-            <h3 className="movie__background__para">
-              With over <span className="span__title2">3000</span> movies on
-              ticket
-              <span className="span__title2">+</span>, the possibilities are
-              endless!
-            </h3>
-            <div className="movie__input">
-              <div className="movie__input__wrapper">
-                <input
-                  type="text"
-                  placeholder="Find a movie"
-                  className="movie__background__input"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                />
-                <i
-                  className="fa-solid fa-magnifying-glass movie__background__search"
-                  onClick={() => handleSearch()}
-                ></i>
-              </div>
-            </div>
-          </div>
+      <div className="search__nav">
+        <div className="movie__input__wrapper">
+          <input
+            type="text"
+            placeholder="Search for a movie"
+            className="movie__background__input"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyPress={handleKeyPress}
+          />
         </div>
-      </section>
-
+        <div className="movie__search__wrapper" onClick={() => handleSearch()}>
+          <i className="fa-solid fa-magnifying-glass movie__background__search"></i>
+        </div>
+      </div>
       <section id="movies">
         <div className="container">
           <div className="row">
             <div className="movies__content">
-              {displayedSearchTerm && (
-                <div className="movies__searchbar">
-                  <h2 className="movies__title__top">Search results for:</h2>
-                  <h2 className="movies__search__result">
-                    "{displayedSearchTerm}"
-                  </h2>
-                </div>
-              )}
               <div className="movies__list" id="movie__list">
                 {isLoading ? (
                   <i className="fa-solid fa-spinner fa-spin movie__list__spinner"></i>
                 ) : (
                   movies.map((movie, index) => (
-                    <div className="movie" key={index}>
+                    <div
+                      className="movie"
+                      key={index}
+                      onClick={() => navigate(`/movies/${movie.imdbID}`)}
+                      style={{ cursor: "pointer" }}
+                    >
                       <figure className="movie__image__wrapper">
                         <img
                           src={movie.Poster}
@@ -180,4 +154,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Movies;
