@@ -250,6 +250,7 @@ body {
 }
 
 .movies__searchbar {
+  margin-left: -95px;
   width: 90%;
   display: flex;
   justify-content: start;

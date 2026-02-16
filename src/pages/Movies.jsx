@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const defaultMovies = [
   {
@@ -54,6 +54,7 @@ const defaultMovies = [
 
 const Movies = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [movies, setMovies] = useState(defaultMovies);
   const [searchTerm, setSearchTerm] = useState("");
   const [displayedSearchTerm, setDisplayedSearchTerm] = useState("");
@@ -87,6 +88,15 @@ const Movies = () => {
     setIsLoading(false);
   };
 
+  // Check for search parameter on page load
+  useEffect(() => {
+    const searchQuery = searchParams.get("search");
+    if (searchQuery) {
+      setSearchTerm(searchQuery);
+      handleSearch(searchQuery);
+    }
+  }, [searchParams]);
+
   // Handle Enter key press
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
@@ -115,6 +125,14 @@ const Movies = () => {
         <div className="container">
           <div className="row">
             <div className="movies__content">
+              {displayedSearchTerm && (
+                <div className="movies__searchbar">
+                  <h2 className="movies__title__top">Search results for:</h2>
+                  <h2 className="movies__search__result">
+                    "{displayedSearchTerm}"
+                  </h2>
+                </div>
+              )}
               <div className="movies__list" id="movie__list">
                 {isLoading ? (
                   <i className="fa-solid fa-spinner fa-spin movie__list__spinner"></i>

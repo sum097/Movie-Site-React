@@ -77,14 +77,8 @@ const HomePage = () => {
   const handleSearch = async (search = searchTerm) => {
     if (!search.trim()) return;
 
-    setIsLoading(true);
-    setDisplayedSearchTerm(search);
-
-    const results = await fetchMovies(search);
-    const limitedResults = results.slice(0, 6);
-
-    setMovies(limitedResults);
-    setIsLoading(false);
+    // Navigate to Movies page with search term
+    navigate(`/movies?search=${encodeURIComponent(search)}`);
   };
 
   // Handle Enter key press

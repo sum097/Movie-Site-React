@@ -129,14 +129,14 @@ const SelectedMovie = () => {
             <div className="selected-movie__right">
               <h1 className="selected-movie__title">{selectedMovie.Title}</h1>
               <div className="selected-movie__meta">
-                <span className="selected-movie__year">{selectedMovie.Year}</span>
-                <span className="selected-movie__separator"> • </span>
-                <span className="selected-movie__runtime">
+                <span className="">{selectedMovie.Year}</span>
+                <span className=""> • </span>
+                <span className="">
                   {selectedMovie.Runtime}
                 </span>
-                <span className="selected-movie__separator"> • </span>
-                <span className="selected-movie__rating">
-                  ⭐ {selectedMovie.imdbRating !== "N/A"
+                <span className=""> • </span>
+                <span className="">
+                  {selectedMovie.imdbRating !== "N/A"
                     ? selectedMovie.imdbRating
                     : "N/A"}
                   /10
