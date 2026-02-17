@@ -469,7 +469,7 @@ body {
 }
 
 .sidebar > h4 {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 400;
   margin-bottom: 32px;
   color: #666;
@@ -494,7 +494,7 @@ body {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 12px 12px;
+  padding: 12px 10px;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -509,14 +509,15 @@ body {
 .sidebar__option svg {
   width: 24px;
   height: 24px;
-  fill: #b3b3b3;
+  fill: #d4d4d4;
   transition: fill 0.2s ease;
 }
 
 .sidebar__option p {
   font-size: 16px;
+  font-size: 24px;
   font-weight: 400;
-  color: #b3b3b3;
+  color: #d4d4d4;
   transition: color 0.2s ease;
 }
 
@@ -544,7 +545,6 @@ body {
   color: #dc143c;
 }
 
-/* Hover state (only for non-active items) */
 .sidebar__option:not(.sidebar__option--active):not(.no-cursor):hover {
   background-color: rgba(255, 255, 255, 0.05);
 }
@@ -790,7 +790,7 @@ body {
   margin-right: 8px;
 }
 
-/* For HomePage and Movies pages - #movie__list is inside .main-content */
+/* For HomePage and Movies pages*/
 
 #movie__list {
   width: 100%;
@@ -879,7 +879,6 @@ body {
   object-fit: cover;
 }
 
-/* Safety: remove any horizontal scrollbar site-wide */
 html,
 body {
   overflow-x: hidden;
