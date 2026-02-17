@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 .main-content {
-  margin-left: 200px; /* Same as sidebar width */
+  margin-left: 200px;
 }
 
 a {
@@ -147,7 +147,7 @@ body {
 }
 
 .nav__search.active {
-  left: 15px; /* Position on the left when active */
+  left: 15px;
   right: auto;
 }
 
@@ -819,7 +819,6 @@ body {
   max-width: 200px;
 }
 
-/* For SelectedMovie page - #movie__list comes after .main-content as a sibling */
 .recommended-movies-section {
   margin-left: 200px;
   padding: 0 80px;
